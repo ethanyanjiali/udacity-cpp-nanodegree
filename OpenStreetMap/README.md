@@ -28,6 +28,16 @@ git clone git@github.com:udacity/CppND-Route-Planning-Project.git --recurse-subm
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 * IO2D
   * Installation instructions for all operating systems can be found [here](https://github.com/cpp-io2d/P0267_RefImpl/blob/master/BUILDING.md)
+  * For MacOS specifically
+  ```bash
+  git clone --recurse-submodules https://github.com/cpp-io2d/P0267_RefImpl
+  cd P0267_RefImpl
+  mkdir Debug
+  cd Debug
+  cmake -G "Xcode" --config Debug "-DCMAKE_BUILD_TYPE=Debug" -DIO2D_DEFAULT=COREGRAPHICS_MAC ../.
+  open io2d.xcodeproj
+  ```
+  * If it says "catch.hpp" not found, please replace includes in PO267_RefImpl with `#include <catch2/catch.hpp>`. https://github.com/cpp-io2d/P0267_RefImpl/issues/138
   * This library must be built in a place where CMake `find_package` will be able to find it
 
 ## Compiling and Running

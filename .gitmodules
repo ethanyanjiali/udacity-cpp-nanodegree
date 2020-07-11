@@ -1,0 +1,9 @@
+[submodule "OpenStreetMap/thirdparty/googletest"]
+	path = OpenStreetMap/thirdparty/googletest
+	url = https://github.com/abseil/googletest.git
+[submodule "OpenStreetMap/thirdparty/pugixml"]
+	path = OpenStreetMap/thirdparty/pugixml
+	url = https://github.com/zeux/pugixml.git
+[submodule "OpenStreetMap/thirdparty/P0267_RefImpl"]
+	path = OpenStreetMap/thirdparty/P0267_RefImpl
+	url = https://github.com/ethanyanjiali/P0267_RefImpl.git

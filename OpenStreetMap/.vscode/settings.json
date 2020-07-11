@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "__functional_03": "cpp",
-        "optional": "cpp"
+        "optional": "cpp",
+        "__config": "cpp"
     }
 }

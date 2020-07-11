@@ -2,6 +2,7 @@
     "files.associations": {
         "__functional_03": "cpp",
         "optional": "cpp",
-        "__config": "cpp"
+        "__config": "cpp",
+        "vector": "cpp"
     }
 }

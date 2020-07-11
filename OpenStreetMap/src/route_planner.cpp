@@ -55,6 +55,13 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node)
 
 RouteModel::Node *RoutePlanner::NextNode()
 {
+    auto sortNode = [](RouteModel::Node *node1, RouteModel::Node *node2) {
+        return (node1->h_value + node1->g_value) > (node2->h_value + node2->g_value);
+    };
+    std::sort(open_list.begin(), open_list.end(), sortNode);
+    auto next = open_list[open_list.size() - 1];
+    open_list.pop_back();
+    return next;
 }
 
 // TODO 6: Complete the ConstructFinalPath method to return the final path found from your A* search.

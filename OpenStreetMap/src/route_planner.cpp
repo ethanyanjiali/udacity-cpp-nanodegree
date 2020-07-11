@@ -109,7 +109,7 @@ void RoutePlanner::AStarSearch()
     // TODO: Implement your solution here.
     current_node = start_node;
     current_node->visited = true;
-    while (current_node->distance(*end_node) != 0)
+    while (current_node->h_value != 0)
     {
         AddNeighbors(current_node);
         current_node = NextNode();

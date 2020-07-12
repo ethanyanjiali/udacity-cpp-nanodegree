@@ -1,0 +1,3 @@
+/workspaces/udacity-cpp-nanodegree/SystemMonitor/build/CMakeFiles/rebuild_cache.dir
+/workspaces/udacity-cpp-nanodegree/SystemMonitor/build/CMakeFiles/monitor.dir
+/workspaces/udacity-cpp-nanodegree/SystemMonitor/build/CMakeFiles/edit_cache.dir

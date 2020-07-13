@@ -27,3 +27,6 @@ clean:
 
 docker:
 	docker build -t udacity-system-monitor:${TAG} .
+
+run:
+	./build/monitor

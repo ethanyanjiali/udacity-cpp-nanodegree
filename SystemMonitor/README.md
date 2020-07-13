@@ -26,7 +26,7 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 * `clean` deletes the `build/` directory, including all of the build artifacts
 
 ## Instructions
-0. To work on this project on MacOS, I used VSCode remote container and Docker. Configuration files are in `.devcontainer`. To start, `cmd+P` and select `Remote-Container: Reopen in Container`.
+0. To work on this project on MacOS, I used VSCode remote container and Docker. Configuration files are in `.devcontainer`. To start, `cmd+shift+P` and select `Remote-Container: Reopen in Container`.
 
 1. Clone the project repository: `git clone https://github.com/udacity/CppND-System-Monitor-Project-Updated.git`
 

@@ -1,9 +1,9 @@
-[submodule "OpenStreetMap/thirdparty/googletest"]
-	path = OpenStreetMap/thirdparty/googletest
+[submodule "RoutePlanning/thirdparty/googletest"]
+	path = RoutePlanning/thirdparty/googletest
 	url = https://github.com/abseil/googletest.git
-[submodule "OpenStreetMap/thirdparty/pugixml"]
-	path = OpenStreetMap/thirdparty/pugixml
+[submodule "RoutePlanning/thirdparty/pugixml"]
+	path = RoutePlanning/thirdparty/pugixml
 	url = https://github.com/zeux/pugixml.git
-[submodule "OpenStreetMap/thirdparty/P0267_RefImpl"]
-	path = OpenStreetMap/thirdparty/P0267_RefImpl
+[submodule "RoutePlanning/thirdparty/P0267_RefImpl"]
+	path = RoutePlanning/thirdparty/P0267_RefImpl
 	url = https://github.com/ethanyanjiali/P0267_RefImpl.git

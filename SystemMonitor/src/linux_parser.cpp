@@ -143,7 +143,7 @@ long LinuxParser::Jiffies()
 
 // DONE: Read and return the number of active jiffies for a PID
 // REMOVE: [[maybe_unused]] once you define the function
-long LinuxParser::ActiveJiffies(int pid [[maybe_unused]])
+long LinuxParser::ActiveJiffies(int pid)
 {
   auto states = LinuxParser::CpuUtilization(pid);
   long utime = stol(states[LinuxParser::ProcessCPUStates::kUTime_]);
@@ -267,7 +267,7 @@ int LinuxParser::RunningProcesses()
 
 // DONE: Read and return the command associated with a process
 // REMOVE: [[maybe_unused]] once you define the function
-string LinuxParser::Command(int pid [[maybe_unused]])
+string LinuxParser::Command(int pid)
 {
   string line;
   string filename = kProcDirectory + std::to_string(pid) + kCmdlineFilename;

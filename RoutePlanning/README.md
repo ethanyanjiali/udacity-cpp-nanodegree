@@ -3,6 +3,7 @@
 The code and documentation are adapted from Route Planning project from Udacity C++ Nanodegree.
 
 Demo:
+
 <img src="demo.png" />
 
 ## Cloning

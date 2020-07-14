@@ -16,7 +16,11 @@ using std::string;
 using std::vector;
 
 // TODO: Return the system's CPU
-Processor &System::Cpu() { return cpu_; }
+Processor &System::Cpu()
+{
+    cpu_ = Processor(LinuxParser::TotalCPUs(), LinuxParser::CPUModelName());
+    return cpu_;
+}
 
 // DONE: Return a container composed of the system's processes
 vector<Process> &System::Processes()
@@ -27,6 +31,7 @@ vector<Process> &System::Processes()
     {
         processes_.push_back(Process(pid));
     }
+    std::sort(std::begin(processes_), std::end(processes_));
     return processes_;
 }
 

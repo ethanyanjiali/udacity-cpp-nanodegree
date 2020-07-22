@@ -23,7 +23,7 @@ Your goal is to use the course knowledge to optimize the ChatBot program from a 
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 * wxWidgets >= 3.0
   * Linux: `sudo apt-get install libwxgtk3.0-dev libwxgtk3.0-0v5-dbg`
-  * Mac: There is a [homebrew installation available](https://formulae.brew.sh/formula/wxmac).
+  * Mac: There is a [homebrew installation available](https://formulae.brew.sh/formula/wxmac): `brew install wxmac`
   * Installation instructions can be found [here](https://wiki.wxwidgets.org/Install). Some version numbers may need to be changed in instructions to install v3.0 or greater.
 
 ## Basic Build Instructions

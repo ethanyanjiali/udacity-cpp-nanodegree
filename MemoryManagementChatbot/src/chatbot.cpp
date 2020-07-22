@@ -65,6 +65,7 @@ ChatBot::ChatBot(ChatBot &&source)
     _image = source._image;
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
+    source._chatLogic->SetChatbotHandle(this);
 
     source._image = nullptr;
     source._chatLogic = nullptr;
@@ -97,6 +98,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source)
     _image = source._image;
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
+    source._chatLogic->SetChatbotHandle(this);
 
     source._image = nullptr;
     source._chatLogic = nullptr;

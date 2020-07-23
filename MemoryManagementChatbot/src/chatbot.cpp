@@ -47,15 +47,11 @@ ChatBot::~ChatBot()
 
 ChatBot::ChatBot(ChatBot &source)
 {
-    // Exclusive ownership policy
     std::cout << "ChatBot Copy Constructor" << std::endl;
 
-    _image = source._image;
+    _image = new wxBitmap(*source._image);
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
-    source._image = nullptr;
-    source._chatLogic = nullptr;
-    source._rootNode = nullptr;
 }
 
 ChatBot::ChatBot(ChatBot &&source)
@@ -79,13 +75,10 @@ ChatBot ChatBot::operator=(ChatBot &source)
     if (this == &source)
         return *this;
 
-    _image = source._image;
+    _image = new wxBitmap(*source._image);
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
 
-    source._image = nullptr;
-    source._chatLogic = nullptr;
-    source._rootNode = nullptr;
     return *this;
 }
 

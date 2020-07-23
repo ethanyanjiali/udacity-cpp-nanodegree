@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <chrono>
 #include "TrafficLight.h"
 
 /* Implementation of class "MessageQueue" */
@@ -40,19 +41,45 @@ TrafficLightPhase TrafficLight::getCurrentPhase()
 {
     return _currentPhase;
 }
-
+*/
 void TrafficLight::simulate()
 {
-    // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class. 
+    // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class.
+    threads.emplace_back(std::thread(&TrafficLight::cycleThroughPhases, this));
 }
 
 // virtual function which is executed in a thread
+
 void TrafficLight::cycleThroughPhases()
 {
-    // FP.2a : Implement the function with an infinite loop that measures the time between two loop cycles 
-    // and toggles the current phase of the traffic light between red and green and sends an update method 
-    // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
-    // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
+    // FP.2a : Implement the function with an infinite loop that measures the time between two loop cycles
+    // and toggles the current phase of the traffic light between red and green and sends an update method
+    // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds.
+    // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles.
+    auto mt_rand = std::mt19937(time(0));
+    int cycle_duration = std::uniform_int_distribution<int>(4000, 6000)(mt_rand);
+    int millisecond_elapsed = 0;
+
+    while (true)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        millisecond_elapsed += 1;
+        if (millisecond_elapsed > cycle_duration)
+        {
+            toggleLightPhase();
+            millisecond_elapsed = 0;
+        }
+    }
 }
 
-*/
+void TrafficLight::toggleLightPhase()
+{
+    if (_currentPhase == TrafficLightPhase::red)
+    {
+        _currentPhase = TrafficLightPhase::green;
+    }
+    else
+    {
+        _currentPhase = TrafficLightPhase::red;
+    }
+}

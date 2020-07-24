@@ -15,7 +15,7 @@ T MessageQueue<T>::receive()
     _condition.wait(lck, [this] { return !_queue.empty(); });
 
     T msg = std::move(_queue.back());
-    _queue.pop_back();
+    _queue.clear();
 
     return msg;
 }
@@ -26,7 +26,6 @@ void MessageQueue<T>::send(T &&msg)
     // FP.4a : The method send should use the mechanisms std::lock_guard<std::mutex>
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
     std::lock_guard<std::mutex> lck(_mutex);
-    std::cout << "   Message " << msg << " has been sent to the queue" << std::endl;
     _queue.emplace_back(msg);
     _condition.notify_one();
 }
@@ -72,21 +71,20 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds.
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles.
-    auto nanoseconds = std::chrono::system_clock::now().time_since_epoch();
-    auto mt_rand = std::mt19937(nanoseconds.count());
+    auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+    auto mt_rand = std::mt19937(seed);
     int cycle_duration = std::uniform_int_distribution<int>(4000, 6000)(mt_rand);
-    int millisecond_elapsed = 0;
-
-    std::cout << "cycle_duration " << cycle_duration << std::endl;
+    auto last_cycle_time = std::chrono::system_clock::now();
 
     while (true)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
-        millisecond_elapsed += 1;
-        if (millisecond_elapsed > cycle_duration)
+        auto time_diff = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - last_cycle_time).count();
+        if (time_diff > cycle_duration)
         {
             toggleLightPhase();
-            millisecond_elapsed = 0;
+            _messages.send(std::move(_currentPhase));
+            last_cycle_time = std::chrono::system_clock::now();
         }
     }
 }

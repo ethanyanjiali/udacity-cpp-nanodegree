@@ -18,9 +18,9 @@ Demo:
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
-* OpenCV >= 4.3.0
-  * Mac: `brew install opencv` or follow instructions at [Installation in MacOS](https://docs.opencv.org/4.3.0/d0/db2/tutorial_macos_install.html) to build from source.
-  * Linux: `sudo apt-get install libopencv-dev` or follow instructions at [Installation in Linux](https://docs.opencv.org/4.3.0/d7/d9f/tutorial_linux_install.html) to build from source.
+* OpenCV and OpenCV Contrib >= 4.3.0
+  * Mac: `brew install opencv` or follow instructions at [Installation in MacOS](https://docs.opencv.org/4.3.0/d0/db2/tutorial_macos_install.html) to build opencv and opencv-contrib from source.
+  * Linux: Follow instructions at [Installation in Linux](https://docs.opencv.org/4.3.0/d7/d9f/tutorial_linux_install.html) to build opencv and opencv-contrib from source.
 
 ## Build and Run Instructions
 

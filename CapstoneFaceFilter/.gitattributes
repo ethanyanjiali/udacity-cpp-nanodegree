@@ -1,0 +1,2 @@
+assets/models/face_landmark_model.dat filter=lfs diff=lfs merge=lfs -text
+assets/models/haarcascade_frontalface_alt.xml filter=lfs diff=lfs merge=lfs -text
